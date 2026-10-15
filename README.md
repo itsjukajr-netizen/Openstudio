@@ -18,6 +18,8 @@ Create models from text, a single image, or multiple reference views when the co
 
 Some tools depend on separately installed backends. The independent editor is still a preview and does not claim complete Blender parity. Read [Capabilities and limits](CAPABILITIES.md) before relying on a specialized workflow; the app also reports missing tools and unsupported settings in Setup and Details.
 
+This package renames the existing 0.2.0-beta.1 preview; it does not change the generation pipeline. A full model-generation run was not repeated on this renamed candidate. If generation failed for you in the previous build, treat this as a compatibility-preserving rename rather than a generation fix, and verify Setup and a small test job on your hardware before relying on it.
+
 **Optional Hunyuan3D-2mv terms:** this backend is provided by Preston Harmon and is not affiliated with, sponsored, or endorsed by Tencent. Its pinned community license does not apply in the European Union, United Kingdom, or South Korea, and the license restricts use of both the model and its outputs to its defined Territory. It also prohibits using the model or outputs to improve another AI model. Do not install or use this backend where its license does not authorize you. Read the [included license copy](licenses/TENCENT_HUNYUAN_3D_2.0_COMMUNITY_LICENSE.txt) and its Acceptable Use Policy before setup.
 
 ## Data and recovery
