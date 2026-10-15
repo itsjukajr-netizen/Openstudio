@@ -1,0 +1,7 @@
+numpy<2
+Pillow
+requests
+trimesh
+shapely
+scipy
+rasterio

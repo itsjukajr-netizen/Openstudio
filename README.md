@@ -2,15 +2,15 @@
 
 Openstudio is a local Windows desktop studio for making and editing game assets. It includes a 3D viewport, model creation and editing workflows, an independent modeling/sculpting/animation preview, material and 8K texture tools, world data workflows, and project history.
 
-**Download:** get the Windows portable build from the [Openstudio 0.2.0-beta.1 release page](https://github.com/itsjukajr-netizen/Openstudio/releases/tag/v0.2.0-beta.1). Choose the `.exe` asset. No installer or administrator rights are required. Openstudio keeps projects, settings, and history in your existing Windows application-data folder.
+**Download:** get the Windows portable build from the [Openstudio 0.2.0-beta.1 release page](https://github.com/itsjukajr-netizen/Openstudio/releases/tag/v0.2.0-beta.1). Choose the `.exe` asset. No installer or administrator rights are required. Openstudio keeps settings, recent-project entries, and the default Projects folder in your existing Windows application-data folder. Projects saved elsewhere remain in their chosen locations.
 
 ## First launch
 
-The portable application includes the Openstudio interface and worker scripts. It does not include Blender, Python, AI model weights, or third-party AI backends. Open **Setup** inside the app to check dependencies and install supported model packages. Model downloads need internet access and several gigabytes of free storage; after setup, supported generation runs locally. A CUDA-capable NVIDIA GPU is recommended for local AI and GPU processing. CPU fallbacks and unsupported GPU operations are reported by the app.
+The portable application includes the Openstudio interface and worker scripts. It does not include Blender, Python, AI model weights, or third-party AI backends. Install Python 3.11 and Blender 5.2 first. Download and extract the [matching support files](https://github.com/itsjukajr-netizen/Openstudio/archive/refs/tags/v0.2.0-beta.1.zip), then run `py -3.11 -m pip install -r setup/requirements-core.txt` from the extracted folder in PowerShell; this installs the base packages used by local processing. Then open **Setup** inside the app to check tools and install supported model environments and weights. Model downloads need internet access and several gigabytes of free storage; after setup, supported generation runs locally. A CUDA-capable NVIDIA GPU is recommended for local AI and GPU processing. CPU fallbacks and unsupported GPU operations are reported by the app.
 
 Close any older Game Tools Studio window normally before starting Openstudio. They share the same single-instance and project-data identity so that your previous projects stay available.
 
-For the full local toolchain, install Python 3.11 and Blender 5.2, then follow the Setup panel. The application is Windows-only in this release. It does not send projects to a hosted generation service. OSM/geographic data downloads require internet access and the relevant data attribution shown by the app.
+The application is Windows-only in this release. It does not send projects to a hosted generation service. OSM/geographic data downloads require internet access and the relevant data attribution shown by the app.
 
 ## What works in this preview
 
@@ -24,7 +24,7 @@ This package renames the existing 0.2.0-beta.1 preview; it does not change the g
 
 ## Data and recovery
 
-Projects use portable manifests, immutable asset revisions, thumbnails, and a local job/revision database. Processing creates new revisions, and cancellation or failure preserves committed work. Keep the entire project folder when moving a project. The default Windows data directory remains `%APPDATA%\game-tools-studio` so installations renamed from earlier releases continue to find existing projects and settings. An explicit `STUDIO_DATA_DIR` overrides that location.
+Projects use portable manifests, immutable asset revisions, thumbnails, and a local job/revision database. Processing creates new revisions, and cancellation or failure preserves committed work. Keep the entire project folder when moving a project. Recent-project entries, settings, and the default Projects folder remain in `%APPDATA%\game-tools-studio` so installations renamed from earlier releases continue to find them. Projects saved in a chosen location stay there. An explicit `STUDIO_DATA_DIR` overrides the app-data location.
 
 ## Credits and licenses
 
