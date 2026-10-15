@@ -6,7 +6,16 @@ Openstudio is a local Windows desktop studio for making and editing game assets.
 
 ## First launch
 
-The portable application includes the Openstudio interface and worker scripts. It does not include Blender, Python, AI model weights, or third-party AI backends. Install Python 3.11 and Blender 5.2 first. Download and extract the [matching support files](https://github.com/itsjukajr-netizen/Openstudio/archive/refs/tags/v0.2.0-beta.1.zip), then run `py -3.11 -m pip install -r setup/requirements-core.txt` from the extracted folder in PowerShell; this installs the base packages used by local processing. Then open **Setup** inside the app to check tools and install supported model environments and weights. Model downloads need internet access and several gigabytes of free storage; after setup, supported generation runs locally. A CUDA-capable NVIDIA GPU is recommended for local AI and GPU processing. CPU fallbacks and unsupported GPU operations are reported by the app.
+The portable application includes the Openstudio interface and worker scripts. It does not include Blender, Python, AI model weights, or third-party AI backends. Install Python 3.11 and Blender 5.2 first. Download and extract the [matching support files](https://github.com/itsjukajr-netizen/Openstudio/archive/refs/tags/v0.2.0-beta.1.zip), then run `py -3.11 -m pip install -r setup/requirements-core.txt` from the extracted folder in PowerShell; this installs the base packages used by local processing. Then open **Setup** inside the app to check tools and install supported model environments and weights. Model downloads need internet access and several gigabytes of free storage; after setup, supported generation runs locally. Local AI model generation, multi-view reconstruction, and CUDA texture workflows require a working CUDA-capable NVIDIA GPU and driver. Blender and native editing operations that support CPU processing can still run without CUDA; GPU-only actions report an error instead of silently switching to CPU.
+
+Setup stores installed models and Python environments in `%APPDATA%\game-tools-studio\runtime` by default. The portable EXE checks for `.runtime` one level above the folder containing the EXE, then two levels above it; if it finds a runtime marked with `models.ready`, it reuses it. Otherwise, Setup installs into the app-data runtime. To reuse an existing runtime from any other location, set `STUDIO_RUNTIME_DIR` to the runtime root (the folder containing `models.ready`, `models`, and any backend folders) before launching the EXE. For example, in PowerShell:
+
+```powershell
+$env:STUDIO_RUNTIME_DIR = "D:\Openstudio\.runtime"
+& "$env:USERPROFILE\Downloads\Openstudio 0.2.0-beta.1.exe"
+```
+
+Replace the example paths with your own. The workspace `Launch Openstudio.cmd` starts the source checkout and uses its existing `GameToolsStudio\.runtime` automatically; a downloaded portable EXE does not search the workspace checkout unless `STUDIO_RUNTIME_DIR` points there.
 
 Close any older Game Tools Studio window normally before starting Openstudio. They share the same single-instance and project-data identity so that your previous projects stay available.
 

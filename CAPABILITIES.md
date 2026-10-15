@@ -8,7 +8,7 @@ Openstudio is an early local preview. Controls that require an unavailable backe
 | Parts | Select, split, hide/show, rename, merge, separate selected faces, and cap small holes | Some selection and geometry operations are assisted |
 | Optimize | Triangle/quad remesh and target face count | Blender adapter is used for supported processing; targets are approximate |
 | UVs | Automatic unwrap, packing, and preview | Blender adapter |
-| Materials | PBR maps, 2K/4K/8K textures, GPU bake/upscale and AI tiled refinement | GPU availability and separately installed local models affect available operations; generated maps may be approximations |
+| Materials | PBR maps, 2K/4K/8K textures, GPU bake/upscale and AI tiled refinement | CUDA texture workflows and local AI require a working NVIDIA CUDA GPU/driver; CPU-capable Blender/native operations remain available without CUDA. Generated maps may be approximations |
 | Rig | Biped/quadruped landmarks, automatic weights, checks, and animation playback | Blender adapter is used for automatic weights; animation import needs matching bones |
 | Export | GLB, FBX, OBJ, STL | Blender is required for selected conversions; destination applications should validate the result |
 | Independent editor | Modeling, sculpting, and animation authoring preview | Does not yet provide complete Blender parity |
